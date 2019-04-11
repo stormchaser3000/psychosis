@@ -10,8 +10,9 @@ class WelcomeText {
 public:
   Vector2 position;
   bool visible;
+  Font font;
 
-  WelcomeText(int pos_x, int pos_y, bool is_shown);
+  WelcomeText(float pos_x, float pos_y, bool is_shown);
   void render()
 };
 
@@ -20,13 +21,17 @@ public:
 class MainMenuCharacter {
   // character is 32x48 pixels
 public:
-  Image image;
   Texture2D texture;
   bool visible;
   Vector2 position;
+  Rectangle frames;
+  int current_frame;
+  int frame_counter;
+  int frame_speed;
 
-  MainMenuCharacter(int pos_x, int pos_y, bool is_shown);
+  MainMenuCharacter(float pos_x, float pos_y, bool is_shown);
   void render();
+  void unload_texture();
 };
 
 
@@ -38,8 +43,9 @@ public:
   Image image;
   Texture2D texture;
 
-  StartGameButton(int pos_x, int pos_y, bool is_shown);
+  StartGameButton(float pos_x, float pos_y, bool is_shown);
   void render()
+  void unload_texture();
 };
 
 
@@ -51,7 +57,8 @@ public:
   Image image;
   Texture2D texture;
 
-  OptionsButton(int pos_x, int pos_y, bool is_shown);
-  void render()
+  OptionsButton(float pos_x, float pos_y, bool is_shown);
+  void render();
+  void unload_texture();
 };
 #endif
