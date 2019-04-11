@@ -1,6 +1,8 @@
 # psychosis
 a game that explores a mind with a guilty conscience. made using raylib
 
+notice to Joey and Tim: if you wish to be added to the copyright notice then please talk to me on discord or steam
+
 Copyright (C) 2019  Ian Sutter <stormchaser30000@gmail.com>
 
 This program is free software: you can redistribute it and/or modify
