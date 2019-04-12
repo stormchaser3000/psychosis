@@ -30,6 +30,8 @@ class MainMenuCharacter {
 public:
   // declare the needed variables to store things like the position and the
   // needed information for the character animation
+  Image image;
+  Image image_copy;
   Texture2D texture;
   bool visible;
   Vector2 position;

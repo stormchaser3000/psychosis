@@ -43,13 +43,13 @@ MainMenuCharacter::MainMenuCharacter(float pos_x, float pos_y, bool is_shown) {
 
   // load the texture to use for the main character and assign the returned
   // value of type Texture2D to texture
-  texture = LoadTexture("assets/characters/Main Character.png");
+  image = LoadImage("assets/characters/Main Character.png");
 
   // define the rectangle which will be used to create the animation
   frames.x = 0.0f;
   frames.y = 0.0f;
-  frames.width = (float)texture.width/4;
-  frames.height = (float)texture.height/4;
+  frames.width = (float)image.width/4;
+  frames.height = (float)image.height/4;
 
   // set the current frame and frame counter to zero
   current_frame = 0;
@@ -81,10 +81,15 @@ void MainMenuCharacter::render() {
     // set the x position of the rectangle (which determines which part of the
     // animation is being rendered). this is determined by multiplying the current
     // frame by the width of the texture divided by 4 (the number of animation frames)
-    frames.x = (float)current_frame * ((float)texture.width / 4);
+    frames.x = (float)current_frame * ((float)image.width / 4);
   }
 
-  DrawTextureRec(texture, frames, position, WHITE);
+  image_copy = ImageCopy(image);
+  ImageCrop(&image_copy, frames);
+  ImageResizeNN(&image_copy, image_copy.width * 2, image_copy.height * 2);
+  texture = LoadTextureFromImage(image_copy);
+  DrawTexture(texture, position.x, position.y, WHITE);
+
 }
 
 void MainMenuCharacter::unload_texture() {
@@ -103,7 +108,6 @@ void main_menu() {
 
   // start the main loop
   while (!WindowShouldClose()) {
-
     // render all the things
     BeginDrawing();
       ClearBackground(RAYWHITE);
