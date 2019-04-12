@@ -12,7 +12,7 @@ WelcomeText::WelcomeText(float pos_x, float pos_y, bool is_shown) {
 }
 
 void WelcomeText::render() {
-  DrawTexture(texture, position.x, position.y, RAYWHITE);
+  DrawTexture(texture, position.x, position.y, WHITE);
 }
 
 void WelcomeText::unload_texture() {
