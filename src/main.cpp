@@ -12,4 +12,8 @@ int main() {
   SetTargetFPS(60);
 
   main_menu();
+
+  CloseWindow();
+
+  return 0;
 }

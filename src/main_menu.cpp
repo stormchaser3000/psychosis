@@ -1,24 +1,28 @@
-#include <iosteam>
+#include <iostream>
 #include "main_menu.h"
 
 
 
 // define WelcomeText member functions
-WelcomeText::WelcomeText(int pos_x, int pos_y, bool is_shown) {
-  position.x = pos_x;
-  position.y = pos_y;
+WelcomeText::WelcomeText(float pos_x, float pos_y, bool is_shown) {
+  position.x = pos_x - 133;
+  position.y = pos_y - 25;
   visible = is_shown;
-  font = LoadFont("assets/DejavuSans-Bold.ttf");
+  texture = LoadTexture("assets/psychosis title.png");
 }
 
-WelcomeText::render() {
-  DrawTextEx(font, "Psychosis", position, 24, 1, PURPLE);
+void WelcomeText::render() {
+  DrawTexture(texture, position.x, position.y, RAYWHITE);
+}
+
+void WelcomeText::unload_texture() {
+  UnloadTexture(texture);
 }
 
 
 
 // define MainMenuCharacter member functions
-MainMenuCharacter::MainMenuCharacter(int pos_x, int pos_y, bool is_shown) {
+MainMenuCharacter::MainMenuCharacter(float pos_x, float pos_y, bool is_shown) {
   position.x = pos_x;
   position.y = pos_y;
   visible = is_shown;
@@ -33,25 +37,35 @@ MainMenuCharacter::MainMenuCharacter(int pos_x, int pos_y, bool is_shown) {
 
 }
 
-MainMenuCharacter::render() {
-  frames_counter++
+void MainMenuCharacter::render() {
+  frame_counter++;
   if (frame_counter >= (60 / frame_speed)) {
-    frame_counter = 0
-    current_frame++
+    frame_counter = 0;
+    current_frame++;
 
-    if ()
+    if (current_frame > 3) current_frame = 0;
 
+    frames.x = (float)current_frame * ((float)texture.width / 4);
   }
+
+  DrawTextureRec(texture, frames, position, WHITE);
+}
+
+void MainMenuCharacter::unload_texture() {
+  UnloadTexture(texture);
 }
 
 
 
 void main_menu() {
-  WelcomeText welcome_text(400, 500, true);
-  MainMenuCharacter main_character((ScreenWidth()-32), (ScreenHeight()-42), true);
+  WelcomeText welcome_text(400, 100, true);
+  MainMenuCharacter main_character(((GetScreenWidth() / 2) - 16), ((GetScreenHeight() / 2) - 21), true);
   while (!WindowShouldClose()) {
-    BeginDrawing()
+    BeginDrawing();
       ClearBackground(RAYWHITE);
-
+      welcome_text.render();
+      main_character.render();
+    EndDrawing();
   }
+  main_character.unload_texture();
 }

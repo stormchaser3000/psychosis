@@ -10,10 +10,11 @@ class WelcomeText {
 public:
   Vector2 position;
   bool visible;
-  Font font;
+  Texture2D texture;
 
   WelcomeText(float pos_x, float pos_y, bool is_shown);
-  void render()
+  void render();
+  void unload_texture();
 };
 
 
@@ -44,7 +45,7 @@ public:
   Texture2D texture;
 
   StartGameButton(float pos_x, float pos_y, bool is_shown);
-  void render()
+  void render();
   void unload_texture();
 };
 
@@ -61,4 +62,6 @@ public:
   void render();
   void unload_texture();
 };
+
+void main_menu();
 #endif
