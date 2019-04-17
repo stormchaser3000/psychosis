@@ -50,11 +50,8 @@ void StartGameButton::render(std::string *level) {
   }
   if (*level == "main menu") {
     if ((GetMouseX() >= position.x) && (GetMouseY() >= position.y)) {
-      std::cout << "it worked";
       if ((GetMouseX() <= (position.x + 125)) && (GetMouseY() <= (position.y + 50))) {
-        std::cout << "this also worked";
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
-          std::cout << "this is also working";
           *level = "level1";
           visible = false;
         }
