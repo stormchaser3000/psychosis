@@ -14,7 +14,7 @@ WelcomeText::WelcomeText(float pos_x, float pos_y, bool is_shown) {
   visible = is_shown;
 
   // load the texture of the welcome text into memory
-  texture = LoadTexture("assets/psychosis title.png");
+  texture = LoadTexture("assets/Psychosis Title.png");
 }
 
 // create a function that renders the welcome text on the screen
@@ -36,8 +36,34 @@ void WelcomeText::unload_texture() {
 // define the member functions for StartGameButton
 
 // define the constructor
-/*
-StartGameButton::StartGameButton(float pos_x, float pos_y, bool is_shown, std::string *level) {
-
+StartGameButton::StartGameButton(float pos_x, float pos_y) {
+  position.x = pos_x - 62.5;
+  position.y = pos_y - 25;
+  visible = true;
+  image = LoadImage("assets/Start Button.png");
 }
-*/
+
+void StartGameButton::render(std::string *level) {
+  if (visible == true) {
+    texture = LoadTextureFromImage(image);
+    DrawTexture(texture, position.x, position.y, GRAY);
+  }
+  if (*level == "main menu") {
+    if ((GetMouseX() >= position.x) && (GetMouseY() >= position.y)) {
+      std::cout << "it worked";
+      if ((GetMouseX() <= (position.x + 125)) && (GetMouseY() <= (position.y + 50))) {
+        std::cout << "this also worked";
+        if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+          std::cout << "this is also working";
+          *level = "level1";
+          visible = false;
+        }
+      }
+    }
+  }
+}
+
+
+void StartGameButton::unload_texture() {
+  UnloadTexture(texture);
+}

@@ -28,6 +28,7 @@ int main() {
   // initialize the characters
   WelcomeText welcome_text(400, 100, true);
   MainCharacter main_character((GetScreenWidth() / 2), (GetScreenHeight() / 2), true);
+  StartGameButton start_button((GetScreenWidth() / 2), 500);
 //  StartGameButton start_button();
 
 
@@ -38,6 +39,7 @@ int main() {
       ClearBackground(BLACK);
       welcome_text.render(&level);
       main_character.render(&level);
+      start_button.render(&level);
     EndDrawing();
   }
 

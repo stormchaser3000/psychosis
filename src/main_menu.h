@@ -20,14 +20,13 @@ public:
 
 
 // create a class for the start game button in the main menu
-/*
+
 class StartGameButton : public GameObject {
 public:
-  StartGameButton(float pos_x, float pos_y, bool is_shown);
-  void render();
+  StartGameButton(float pos_x, float pos_y);
+  void render(std::string *level);
   void unload_texture();
 };
-*/
 
 
 // create a class for the options button in the main menu
