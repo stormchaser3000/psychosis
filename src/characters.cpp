@@ -34,7 +34,7 @@ MainCharacter::MainCharacter(float pos_x, float pos_y, bool is_shown) {
 }
 
 
-void MainCharacter::render(std::string *level) {
+void MainCharacter::render(std::string *level, bool *game_starting) {
   if (*level == "main menu") {
     // increment the frame counter by one every time this method is called
     frame_counter++;
@@ -58,6 +58,12 @@ void MainCharacter::render(std::string *level) {
       // frame by the width of the texture divided by 4 (the number of animation frames)
       frames.x = (float)current_frame * ((float)image.width / 4);
     }
+  }
+
+  if (*game_starting == true) {
+    frames.y = ((float)image.height / 4) * 0;
+    frames.x = 0.0f * ((float)image.width / 4);
+    *game_starting = false;
   }
 
   if (*level == "level1") {

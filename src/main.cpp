@@ -24,6 +24,7 @@ int main() {
 
   // set the level to "main menu"
   std::string level = "main menu";
+  bool game_starting = true;
 
   // initialize the characters
   WelcomeText welcome_text(400, 100, true);
@@ -38,8 +39,8 @@ int main() {
     BeginDrawing();
       ClearBackground(BLACK);
       welcome_text.render(&level);
-      main_character.render(&level);
-      start_button.render(&level);
+      main_character.render(&level, &game_starting);
+      start_button.render(&level, &game_starting);
     EndDrawing();
   }
 

@@ -21,7 +21,7 @@ public:
   MainCharacter(float pos_x, float pos_y, bool is_shown);
 
   // declare the render() method
-  void render(std::string *level);
+  void render(std::string *level, bool *game_starting);
 
   // declare the unload_texture() method
   void unload_texture();

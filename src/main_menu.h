@@ -24,7 +24,7 @@ public:
 class StartGameButton : public GameObject {
 public:
   StartGameButton(float pos_x, float pos_y);
-  void render(std::string *level);
+  void render(std::string *level, bool *game_starting);
   void unload_texture();
 };
 

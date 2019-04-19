@@ -43,7 +43,7 @@ StartGameButton::StartGameButton(float pos_x, float pos_y) {
   image = LoadImage("assets/Start Button.png");
 }
 
-void StartGameButton::render(std::string *level) {
+void StartGameButton::render(std::string *level, bool *game_starting) {
   if (visible == true) {
     texture = LoadTextureFromImage(image);
     DrawTexture(texture, position.x, position.y, GRAY);
@@ -54,6 +54,7 @@ void StartGameButton::render(std::string *level) {
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
           *level = "level1";
           visible = false;
+          *game_starting = true;
         }
       }
     }
