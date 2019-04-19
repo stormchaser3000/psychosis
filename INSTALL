@@ -1,0 +1,41 @@
+linux:
+
+install raylib using these instructions:
+
+https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux
+
+open a terminal and change directories to the psychosis directory then type:
+
+make
+
+-------------------
+
+Windows:
+
+if you have not done so already, download and install MinGW and make sure the MinGW
+tools are in your PATH environment variable (look up the PATH environment variable
+if you do not know what I am talking about):
+
+http://mingw.org/
+
+download the psychosis source code from here by clicking "clone or download":
+
+https://github.com/stormchaser3000/psychosis
+
+download a windows raylib (2.0.0 MinGW for simplicity) build from here:
+
+https://github.com/raysan5/raylib/releases
+
+and the Physac source code from here:
+
+https://github.com/victorfisac/Physac/releases
+
+unzip the three files into the same directory
+
+run cmd.exe and use the cd command to change to the unzipped psychosis folder
+
+example: cd Desktop\psychosis-build\psychosis
+
+now type:
+
+make.bat build

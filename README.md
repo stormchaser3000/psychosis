@@ -1,5 +1,5 @@
 # psychosis
-a game that explores a mind with a guilty conscience. made using raylib
+a game that explores a mind with a guilty conscience. made using raylib (Very WIP at the moment)
 
 notice to Joey and Tim: if you wish to be added to the copyright notice then please talk to me on discord or steam
 

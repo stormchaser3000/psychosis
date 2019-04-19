@@ -1,0 +1,28 @@
+CXX = g++
+
+# Make sure to change RAYLIB_DIR to the directory of raylib
+RAYLIB_DIR = ..\raylib-2.0.0-Win32-mingw
+
+# Make sure to change PHYSAC_DIR to the directory of physac
+PHYSAC_DIR = ..\Physac-1.0
+
+# change the c flags as needed
+CXXFLAGS = -L$(RAYLIB_DIR)\lib -I$(PHYSAC_DIR)\src -I$(RAYLIB_DIR)\include -lraylib_shared -lopengl32 -lgdi32
+
+psychosis.exe: src/characters.o src/main_menu.o src/main.o
+	$(CXX) characters.o main_menu.o main.o -o psychosis.exe $(CXXFLAGS)
+
+src/main.o: src/main.cpp src/characters.h src/main_menu.h
+	$(CXX) -c src/main.cpp -o main.o $(CXXFLAGS)
+
+src/characters.o: src/characters.cpp src/characters.h
+	$(CXX) -c src/characters.cpp -o characters.o $(CXXFLAGS)
+
+src/main_menu.o: src/main_menu.cpp src/main_menu.h
+	$(CXX) -c src/main_menu.cpp -o main_menu.o $(CXXFLAGS)
+
+clean:
+	del psychosis.exe
+	del characters.o
+	del main_menu.o
+	del main.o
