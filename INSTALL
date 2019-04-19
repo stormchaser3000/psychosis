@@ -39,3 +39,6 @@ example: cd Desktop\psychosis-build\psychosis
 now type:
 
 make.bat build
+
+then go to the unzipped raylib folder and then the lib folder. copy libraylib_shared.dll
+to the psychosis folder
