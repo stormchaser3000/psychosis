@@ -18,6 +18,7 @@ WelcomeText::WelcomeText(float pos_x, float pos_y, bool is_shown) {
 }
 
 // create a function that renders the welcome text on the screen
+// if level is equal to "main menu"
 void WelcomeText::render(std::string *level) {
   if (*level == "main menu") {
     DrawTexture(texture, position.x, position.y, WHITE);
@@ -43,11 +44,21 @@ StartGameButton::StartGameButton(float pos_x, float pos_y) {
   image = LoadImage("assets/Start Button.png");
 }
 
+<<<<<<< HEAD
 void StartGameButton::render(std::string *level, bool *game_starting) {
+=======
+// define the render method for StartGameButton
+void StartGameButton::render(std::string *level) {
+  // draw the texture if the sprite is set to visible
+>>>>>>> 24bfdb978f7e45e60bf7451643db264ab7cddbb2
   if (visible == true) {
     texture = LoadTextureFromImage(image);
     DrawTexture(texture, position.x, position.y, GRAY);
   }
+
+  // detect if the mouse is touching the start button
+  // if it is then check if the left mouse button is being clicked
+  // if it is then set level to "level1" to start the game
   if (*level == "main menu") {
     if ((GetMouseX() >= position.x) && (GetMouseY() >= position.y)) {
       if ((GetMouseX() <= (position.x + 125)) && (GetMouseY() <= (position.y + 50))) {
@@ -61,7 +72,7 @@ void StartGameButton::render(std::string *level, bool *game_starting) {
   }
 }
 
-
+// create a method to unload the texture from memory
 void StartGameButton::unload_texture() {
   UnloadTexture(texture);
 }
