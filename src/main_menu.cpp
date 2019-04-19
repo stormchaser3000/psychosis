@@ -44,13 +44,7 @@ StartGameButton::StartGameButton(float pos_x, float pos_y) {
   image = LoadImage("assets/Start Button.png");
 }
 
-<<<<<<< HEAD
 void StartGameButton::render(std::string *level, bool *game_starting) {
-=======
-// define the render method for StartGameButton
-void StartGameButton::render(std::string *level) {
-  // draw the texture if the sprite is set to visible
->>>>>>> 24bfdb978f7e45e60bf7451643db264ab7cddbb2
   if (visible == true) {
     texture = LoadTextureFromImage(image);
     DrawTexture(texture, position.x, position.y, GRAY);
