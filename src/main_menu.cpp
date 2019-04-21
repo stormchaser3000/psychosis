@@ -7,7 +7,7 @@
 // define the welcome text constructor
 WelcomeText::WelcomeText(float pos_x, float pos_y, bool is_shown) {
   // set the position of the Welcome text
-  position.x = pos_x - 133;
+  position.x = pos_x - 134;
   position.y = pos_y - 25;
 
   // set weather or not the welcome text is shown

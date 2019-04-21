@@ -10,11 +10,14 @@
 // define the main function
 int main() {
   // set the window size
-  int scr_width = 800;
-  int scr_height = 600;
+  int scr_width = GetScreenWidth();
+  int scr_height = GetScreenHeight();
 
   // initialize the game window
   InitWindow(scr_width, scr_height, "RPG");
+  
+  // put the window into fullscreen
+  ToggleFullscreen();
 
   // set the target frame rate to 60
   SetTargetFPS(60);
@@ -27,9 +30,9 @@ int main() {
   bool game_starting = true;
 
   // initialize the characters
-  WelcomeText welcome_text(400, 100, true);
+  WelcomeText welcome_text(GetScreenWidth() / 2, 100, true);
   MainCharacter main_character((GetScreenWidth() / 2), (GetScreenHeight() / 2), true);
-  StartGameButton start_button((GetScreenWidth() / 2), 500);
+  StartGameButton start_button((GetScreenWidth() / 2), (GetScreenHeight() - 100));
 //  StartGameButton start_button();
 
 
