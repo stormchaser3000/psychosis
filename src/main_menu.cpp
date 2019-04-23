@@ -38,7 +38,7 @@ void WelcomeText::unload_texture() {
 
 // define the constructor
 StartGameButton::StartGameButton(float pos_x, float pos_y) {
-  position.x = pos_x - 62.5;
+  position.x = pos_x - 62;
   position.y = pos_y - 25;
   visible = true;
   image = LoadImage("assets/Start Button.png");
